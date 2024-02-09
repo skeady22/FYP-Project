@@ -1,0 +1,123 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Menu",
+            "id": "8a0e1b0f-c0ed-4e27-9394-0eb4a1076091",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "24c82628-17e9-446a-8bfd-5e3a9c1bb3df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c4e3cfed-30bc-4b5b-82c0-9d81306173f7",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "One_Button",
+            "id": "4d90b960-0add-414b-bb59-4d394ea7e0b5",
+            "actions": [
+                {
+                    "name": "button_0",
+                    "type": "Button",
+                    "id": "79d9fef2-58b6-43f0-84d1-7bbe3b5c1926",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0d8ffd6b-0c64-429d-88aa-ddf8bc3c1c98",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "button_0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5142d8b9-4f8e-4817-8c8b-7f134c90339b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "button_0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Four_Button",
+            "id": "42226d20-8a85-48fc-918b-225d788374eb",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "5bd91731-0ccf-446b-a6a9-49c50c3018d0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2b5da641-f61e-4c82-a484-9a41b9124737",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "all",
+            "bindingGroup": "all",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>/{Back}",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>/{Back}",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
