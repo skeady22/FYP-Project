@@ -1,4 +1,4 @@
-// I used this video to create the code: https://youtu.be/gIjajeyjRfE
+// Code taken from this video: https://youtu.be/gIjajeyjRfE
 
 using System.Collections;
 using System.Collections.Generic;

@@ -5,8 +5,7 @@ namespace Assets.Scripts
 {
     public class coinController : MonoBehaviour
     {
-        [SerializeField] GameObject coin;
-        SceneController scene = new SceneController();
+        [SerializeField] SceneController scene;
 
         // Use this for initialization
         void Start()
@@ -22,13 +21,12 @@ namespace Assets.Scripts
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            coin.SetActive(false);
-            scene.updateCoins();
+            collectCoin();
         }
 
         void collectCoin()
         {
-            coin.SetActive(false);
+            Debug.Log("coin collected");
             scene.updateCoins();
         }
     }
