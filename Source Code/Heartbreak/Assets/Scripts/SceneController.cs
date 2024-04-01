@@ -6,22 +6,21 @@ using UnityEngine.Events;
 
 public class SceneController : MonoBehaviour
 {
+    [SerializeField] private new AudioSource audio;
     [SerializeField] private TextAsset settingJson;
     [SerializeField] private float bpm;
-    [SerializeField] private AudioSource audio;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private GameObject gridObj;
     [SerializeField] float scrollMult;
-    
-    static float beatPerSec;
-    static float secPerBeat;
-    static int collectedCoins;
 
-    [SerializeField] static float scrollSpeed;
+    public static float scrollSpeed { get; private set; }
+    public static float beatPerSec { get; private set; }
+    public static float secPerBeat { get; private set; }
+    private static int collectedCoins = 0;
 
     public UnityEvent syncAudio;
-    public Settings settings;
+    public static Settings settings;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +40,6 @@ public class SceneController : MonoBehaviour
         Debug.Log("Config file loaded, one_button: " + settings.one_button);
 
         // set score text
-        collectedCoins = 0;
         scoreTextUpdate(scoreText);
         hpTextUpdate(100);
 
@@ -64,20 +62,10 @@ public class SceneController : MonoBehaviour
         scoreText.text = ("Score: " + collectedCoins);
     }
 
-    // getters for the beatPerSec and secPerBeat variables for other scripts
-    public static float getBeatPerSec()
+    void InvokeSyncAudio()
     {
-        return beatPerSec;
-    }
-
-    public static float getSecPerBeat()
-    {
-        return secPerBeat;
-    }
-
-    public static float getScrollSpeed()
-    {
-        return scrollSpeed;
+        syncAudio.Invoke();
+        Debug.Log("beat invoked");
     }
 
     // Coroutine for syncing the audio with the game
@@ -87,13 +75,14 @@ public class SceneController : MonoBehaviour
         {
             yield return null; // wait until the audio loads in
         }
+        Debug.Log("audio loaded");
         yield return new WaitForSeconds(settings.offset); // offset that the player sets
         Debug.Log("offset: " + settings.offset);
         while (true)
         {
             syncAudio.Invoke();
             Debug.Log("beat invoked");
-            yield return new WaitForSeconds(SceneController.getSecPerBeat()); // 60 divided by the BPM
+            yield return new WaitForSeconds(secPerBeat); // 60 divided by the BPM
         }
     }
 }

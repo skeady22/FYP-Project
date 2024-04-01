@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject beatImage;
-    [SerializeField] private SceneController scene;
     [SerializeField] private GameObject mainUI;
     [SerializeField] private GameObject optionsUI;
+    [SerializeField] private SceneController scene;
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Beat(beatImage));
+        //StartCoroutine(Beat(beatImage);
         scene.syncAudio.AddListener(ActivateImage);
     }
 
