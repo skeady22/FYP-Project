@@ -14,13 +14,14 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject gridObj;
     [SerializeField] float scrollMult;
 
+    public UnityEvent syncAudio;
+    public static Settings settings;
+
+    public AudioSource Audio { get { return audio; } }
     public static float scrollSpeed { get; private set; }
     public static float beatPerSec { get; private set; }
     public static float secPerBeat { get; private set; }
     private static int collectedCoins = 0;
-
-    public UnityEvent syncAudio;
-    public static Settings settings;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +43,6 @@ public class SceneController : MonoBehaviour
         // set score text
         scoreTextUpdate(scoreText);
         hpTextUpdate(100);
-
-        StartCoroutine(AudioSync());
     }
 
     public void updateCoins()
@@ -60,29 +59,5 @@ public class SceneController : MonoBehaviour
     void scoreTextUpdate(TMP_Text scoreText)
     {
         scoreText.text = ("Score: " + collectedCoins);
-    }
-
-    void InvokeSyncAudio()
-    {
-        syncAudio.Invoke();
-        Debug.Log("beat invoked");
-    }
-
-    // Coroutine for syncing the audio with the game
-    IEnumerator AudioSync()
-    {
-        while (audio.clip.loadState == AudioDataLoadState.Unloaded)
-        {
-            yield return null; // wait until the audio loads in
-        }
-        Debug.Log("audio loaded");
-        yield return new WaitForSeconds(settings.offset); // offset that the player sets
-        Debug.Log("offset: " + settings.offset);
-        while (true)
-        {
-            syncAudio.Invoke();
-            Debug.Log("beat invoked");
-            yield return new WaitForSeconds(secPerBeat); // 60 divided by the BPM
-        }
     }
 }

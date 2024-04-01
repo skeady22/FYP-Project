@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private RaycastHit hit;
 
     private Vector3 direction;
-    private float distance;
 
 
     // Start is called before the first frame update
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour
         {
             // move the player according to the scroll speed
             //transform.position += Vector3.right * (scrollSpeed * 2 + 1.25f) * Time.deltaTime;
-            transform.Translate(direction * (Time.deltaTime * (direction.magnitude/SceneController.secPerBeat)));
+            transform.Translate((direction * (Time.deltaTime * (direction.magnitude/SceneController.secPerBeat)) * 2));
             ray.origin = new Vector3(0, transform.position.y + 5f, 0);
             Debug.Log("player posìtion: " + transform.position);
         }

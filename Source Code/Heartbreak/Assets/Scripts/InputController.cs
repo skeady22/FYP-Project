@@ -5,16 +5,16 @@ using UnityEngine.InputSystem;
 
 public class InputController : MonoBehaviour
 {
-    private SceneController scene;
-
+    [SerializeField] private SceneController scene;
     [SerializeField] private InputActionAsset inputs;
     [SerializeField] private GameObject player;
     private Vector3[] lanes;
 
     void Start()
     {
-        scene = gameObject.GetComponent<SceneController>();
-        //StartCoroutine(AudioSync());
+        scene.Audio.clip.LoadAudioData();
+        Debug.Log("Audio loaded");
+        StartCoroutine(AudioSync());
     }
 
     void checkInputTiming(InputAction input)
@@ -24,7 +24,7 @@ public class InputController : MonoBehaviour
 
     IEnumerator AudioSync()
     {
-        while (scene.GetComponent<AudioSource>().clip.loadState == AudioDataLoadState.Unloaded)
+        while (scene.Audio.clip.loadState != AudioDataLoadState.Loaded)
         {
             yield return null; // wait until the audio loads in
         }

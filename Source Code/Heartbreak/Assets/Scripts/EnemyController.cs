@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         EnemyHit();
     }
 
-     public void EnemyHit()
+    public void EnemyHit()
     {
         enemy.SetActive(!enemy.activeSelf);
     }
