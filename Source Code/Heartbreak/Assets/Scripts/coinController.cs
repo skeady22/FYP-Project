@@ -27,7 +27,7 @@ namespace Assets.Scripts
         void collectCoin()
         {
             Debug.Log("coin collected");
-            scene.updateCoins();
+            scene.UpdateCoins();
         }
     }
 }

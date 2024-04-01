@@ -6,13 +6,17 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     private float scrollSpeed;
-    private int health = 100;
+    public static int health { get; private set; }
     private bool isGrounded;
     private Ray ray;
     private RaycastHit hit;
 
     private Vector3 direction;
 
+    private void Awake()
+    {
+        health = 100;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,18 +42,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Enemy")
-        {
-            health -= 10;
-        }
-        if (collision.gameObject.name == "Coin" && health !> 100)
-        {
-            health += 10;
-        }
-    }
-
     public void Jump()
     {
         if (isGrounded)
@@ -60,9 +52,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void loseHP(int hp)
+    public static void LoseHP(int hp)
     {
         health -= hp;
+        Debug.Log(string.Format("Lost {0} health", hp));
     }
 
     IEnumerator Wait()
