@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 public class InputController : MonoBehaviour
 {
     [SerializeField] private SceneController scene;
-    [SerializeField] private InputActionAsset inputs;
+    [SerializeField] private PlayerInput inputs;
     [SerializeField] private GameObject player;
+    private List<float> intervals = new List<float>();
     private Vector3[] lanes;
 
     void Start()
@@ -17,9 +18,43 @@ public class InputController : MonoBehaviour
         StartCoroutine(AudioSync());
     }
 
-    void checkInputTiming(InputAction input)
+    private void Update()
     {
-        //check if its early or late
+        if (inputs.actions["button_0"].WasPressedThisFrame())
+        {
+            checkInputTiming(inputs.actions["button_0"]);
+        }
+    }
+
+    private void checkInputTiming(InputAction input)
+    {
+        float inputTime;
+        if (intervals[^1] >= (SceneController.secPerBeat/2))
+        {
+            inputTime = intervals[^1] + SceneController.secPerBeat;
+        }
+        else
+        {
+            inputTime = intervals[^1];
+        }
+
+        float delay = inputTime - Time.time;
+        if (delay > 0)
+        {
+            // early
+            Debug.Log("early input");
+        }
+        else if (delay < 0)
+        {
+            // late
+            Debug.Log("late input");
+        }
+        else
+        {
+            // perfect
+            Debug.Log("perfect input");
+        }
+            
     }
 
     IEnumerator AudioSync()
@@ -33,6 +68,7 @@ public class InputController : MonoBehaviour
         while (true)
         {
             scene.syncAudio.Invoke();
+            intervals.Add(Time.time);
             Debug.Log("beat invoked");
             yield return new WaitForSeconds(SceneController.secPerBeat); // 60 divided by the BPM
         }
