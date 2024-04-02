@@ -13,6 +13,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private GameObject gridObj;
     [SerializeField] float scrollMult;
+    [SerializeField] public UIController ui;
 
     public UnityEvent syncAudio;
     public static Settings settings;
