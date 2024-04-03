@@ -12,13 +12,6 @@ public class InputController : MonoBehaviour
     private Vector3[] lanes;
     [SerializeField] private float delay;
 
-    enum Timing
-    {
-        early = 0,
-        perfect = 1,
-        late = 2
-    }
-
     void Start()
     {
         scene.Audio.clip.LoadAudioData();
@@ -30,7 +23,10 @@ public class InputController : MonoBehaviour
     {
         if (inputs.actions["button_0"].WasPressedThisFrame())
         {
-            checkInputTiming(inputs.actions["button_0"]);
+            if (intervals.Count > 0)
+            {
+                checkInputTiming(inputs.actions["button_0"]);
+            }
         }
     }
 
@@ -47,13 +43,13 @@ public class InputController : MonoBehaviour
         }
 
         delay = inputTime - Time.time;
-        if (delay > SceneController.secPerBeat/2)
+        if (delay > SceneController.secPerBeat/2 + 0.1f)
         {
             // early
             Debug.Log("early input");
             scene.ui.EarlyTimingUI(0);
         }
-        else if (delay < SceneController.secPerBeat / 2)
+        else if (delay < SceneController.secPerBeat / 2 - 0.1f)
         {
             // late
             Debug.Log("late input");

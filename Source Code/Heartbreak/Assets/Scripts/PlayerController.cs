@@ -5,11 +5,9 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-    private float scrollSpeed;
+    [SerializeField] private SceneController scene;
     public static int health { get; private set; }
     private bool isGrounded;
-    private Ray ray;
-    private RaycastHit hit;
 
     private Vector3 direction;
 
@@ -21,13 +19,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        direction = new Vector3(scrollSpeed + 1.25f, 0, 0);
-        
         // set isGrounded to true so the player can jump and get the scroll speed from the bpm speed * the multiplier that the player chooses
         isGrounded = true;
-        scrollSpeed = SceneController.scrollSpeed;
+        scene.syncAudio.AddListener(LogPosition);
 
-        ray = new Ray(new Vector3(0, transform.position.y+5f, 0), Vector3.down);
+        direction = new Vector3((SceneController.scrollSpeed + 1.25f), 0, 0);
     }
 
     void FixedUpdate()
@@ -36,9 +32,11 @@ public class PlayerController : MonoBehaviour
         {
             // move the player according to the scroll speed
             //transform.position += Vector3.right * (scrollSpeed * 2 + 1.25f) * Time.deltaTime;
-            transform.Translate((direction * (Time.deltaTime * (direction.magnitude/SceneController.secPerBeat)) * 2));
-            ray.origin = new Vector3(0, transform.position.y + 5f, 0);
-            Debug.Log("player posìtion: " + transform.position);
+            //transform.Translate((direction * (Time.deltaTime * (direction.magnitude/SceneController.secPerBeat)) * 2));
+            //transform.Translate(direction * Time.deltaTime);
+            transform.position += direction * Time.deltaTime * SceneController.beatPerSec;
+
+
         }
     }
 
@@ -56,6 +54,11 @@ public class PlayerController : MonoBehaviour
     {
         health -= hp;
         Debug.Log(string.Format("Lost {0} health", hp));
+    }
+
+    void LogPosition()
+    {
+        Debug.Log("player posìtion: " + transform.position);
     }
 
     IEnumerator Wait()

@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts
-{
-    public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
     {
 
         // Use this for initialization
@@ -23,4 +21,3 @@ namespace Assets.Scripts
 
         }
     }
-}
