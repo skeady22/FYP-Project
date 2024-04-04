@@ -6,29 +6,17 @@ using UnityEngine.Events;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
-
-    private Vector3 rayOrigin;
-    private Vector3 rayDirection;
-    private float rayDistance = 0.1f;
-    private RaycastHit rayHit;
+    [SerializeField] private SceneController scene;
 
     // Start is called before the first frame update
     void Start()
     {
-        //rayOrigin = new Vector3();
-        //rayDirection = new Vector3();
+        transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed + 1.25f, 0, 0));
+        transform.position -= new Vector3(21, 0, 0);
     }
 
     private void Update()
     {
-        if (Physics.Raycast(rayOrigin, rayDirection, out rayHit, rayDistance))
-        {
-            if (rayHit.collider.gameObject != gameObject)
-            {
-                EnemyHit();
-                Debug.Log("play hit enemy ray");
-            }
-        }
     }
 
     // Update is called once per frame
@@ -47,5 +35,6 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Hit enemy");
         enemy.SetActive(!enemy.activeSelf);
         PlayerController.LoseHP(10);
+        scene.HpTextUpdate(10);
     }
 }

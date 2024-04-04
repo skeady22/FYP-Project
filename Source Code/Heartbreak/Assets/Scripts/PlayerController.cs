@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SceneController scene;
     public static int health { get; private set; }
     private bool isGrounded;
+    public static int score { get; private set; }
 
     private Vector3 direction;
 
     private void Awake()
     {
         health = 100;
+        score = 0;
     }
 
     // Start is called before the first frame update
@@ -59,6 +61,11 @@ public class PlayerController : MonoBehaviour
     void LogPosition()
     {
         Debug.Log("player posìtion: " + transform.position);
+    }
+
+    public static void AddScore(int score)
+    {
+        PlayerController.score += score;
     }
 
     IEnumerator Wait()

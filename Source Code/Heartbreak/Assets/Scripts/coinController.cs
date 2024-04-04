@@ -10,7 +10,9 @@ namespace Assets.Scripts
         // Use this for initialization
         void Start()
         {
-
+            //transform.position += new Vector3(SceneController.scrollSpeed + 1.25f, 0, 0);
+            transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed, 0, 0));
+            //transform.position -= new Vector3(21, 0, 0);
         }
 
         // Update is called once per frame
@@ -21,11 +23,12 @@ namespace Assets.Scripts
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            collectCoin();
+            CollectCoin();
         }
 
-        void collectCoin()
+        void CollectCoin()
         {
+            gameObject.SetActive(false);
             Debug.Log("coin collected");
             scene.UpdateCoins();
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -10,8 +11,11 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject mainUI;
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private SceneController scene;
+    [SerializeField] private InputController input;
     [SerializeField] private GameObject earlyTimingImage;
     [SerializeField] private GameObject lateTimingImage;
+    [SerializeField] private GameObject startButton;
+    [SerializeField] private TMP_Text scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +43,7 @@ public class UIController : MonoBehaviour
 
     public void PauseGame()
     {
-
+        Time.timeScale = 0;
     }
 
     public void OptionMenu()
@@ -57,6 +61,18 @@ public class UIController : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        startButton.SetActive(false);
+        Time.timeScale = 1;
+        StartCoroutine(input.AudioSync());
+    }
+
+    public void UpdateScoreText()
+    {
+        scoreText.text = ("Score: " + PlayerController.score);
     }
 
     public void EarlyTimingUI(int timing)
