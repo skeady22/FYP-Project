@@ -11,8 +11,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed + 1.25f, 0, 0));
-        transform.position -= new Vector3(21, 0, 0);
+        transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed + 1.25f, 0, 0)) - new Vector3(transform.position.x, 0, 0);
     }
 
     private void Update()
@@ -35,6 +34,6 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Hit enemy");
         enemy.SetActive(!enemy.activeSelf);
         PlayerController.LoseHP(10);
-        scene.HpTextUpdate(10);
+        scene.HpTextUpdate(PlayerController.Health);
     }
 }

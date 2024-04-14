@@ -55,7 +55,7 @@ public class SceneController : MonoBehaviour
 
         // set score text
         CoinTextUpdate(coinText);
-        HpTextUpdate(PlayerController.health);
+        HpTextUpdate(PlayerController.Health);
         ui.UpdateScoreText();
     }
 

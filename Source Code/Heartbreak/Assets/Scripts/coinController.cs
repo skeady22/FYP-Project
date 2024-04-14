@@ -11,7 +11,8 @@ namespace Assets.Scripts
         void Start()
         {
             //transform.position += new Vector3(SceneController.scrollSpeed + 1.25f, 0, 0);
-            transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed, 0, 0));
+            //transform.position = new Vector3((transform.position.x * (SceneController.scrollSpeed + 1.25f)) - transform.position.x, transform.position.y, transform.position.z);
+            transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed + 1.25f, 1, 1)) - new Vector3(transform.position.x, 0, 0);
             //transform.position -= new Vector3(21, 0, 0);
         }
 

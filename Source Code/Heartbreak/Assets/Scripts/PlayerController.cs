@@ -6,16 +6,17 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private SceneController scene;
-    public static int health { get; private set; }
+    [SerializeField] private AudioSource jumpSound;
+    public static int Health { get; private set; }
     private bool isGrounded;
-    public static int score { get; private set; }
+    public static int Score { get; private set; }
 
     private Vector3 direction;
 
     private void Awake()
     {
-        health = 100;
-        score = 0;
+        Health = 100;
+        Score = 0;
     }
 
     // Start is called before the first frame update
@@ -37,8 +38,6 @@ public class PlayerController : MonoBehaviour
             //transform.Translate((direction * (Time.deltaTime * (direction.magnitude/SceneController.secPerBeat)) * 2));
             //transform.Translate(direction * Time.deltaTime);
             transform.position += direction * Time.deltaTime * SceneController.beatPerSec;
-
-
         }
     }
 
@@ -46,15 +45,16 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            isGrounded = false;
+            //isGrounded = false;
             StartCoroutine(Wait());
-            transform.position += Vector3.up * 3.5f;            
+            transform.position += Vector3.up * 3.5f;
+            jumpSound.Play();
         }
     }
 
     public static void LoseHP(int hp)
     {
-        health -= hp;
+        Health -= hp;
         Debug.Log(string.Format("Lost {0} health", hp));
     }
 
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     public static void AddScore(int score)
     {
-        PlayerController.score += score;
+        PlayerController.Score += score;
     }
 
     IEnumerator Wait()

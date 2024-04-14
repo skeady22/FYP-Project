@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private SceneController scene;
     [SerializeField] private InputController input;
     [SerializeField] private GameObject earlyTimingImage;
+    [SerializeField] private GameObject perfectTimingImage;
     [SerializeField] private GameObject lateTimingImage;
     [SerializeField] private GameObject startButton;
     [SerializeField] private TMP_Text scoreText;
@@ -72,7 +73,7 @@ public class UIController : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        scoreText.text = ("Score: " + PlayerController.score);
+        scoreText.text = ("Score: " + PlayerController.Score);
     }
 
     public void EarlyTimingUI(int timing)
@@ -82,14 +83,17 @@ public class UIController : MonoBehaviour
         {
             case 0:
                 earlyTimingImage.SetActive(true);
+                perfectTimingImage.SetActive(false);
                 lateTimingImage.SetActive(false);
                 break;
             case 1:
                 earlyTimingImage.SetActive(false);
+                perfectTimingImage.SetActive(true);
                 lateTimingImage.SetActive(false);
                 break;
             case 2:
                 earlyTimingImage.SetActive(false);
+                perfectTimingImage.SetActive(false);
                 lateTimingImage.SetActive(true);
                 break;
             default:
