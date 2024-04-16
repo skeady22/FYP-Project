@@ -710,7 +710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273208156}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2758,11 +2758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 2031719587}
   bpm: 120
-  coinText: {fileID: 1224063113}
-  hpText: {fileID: 6431840}
   gridObj: {fileID: 1010746569}
   scrollMult: 4
   ui: {fileID: 1415960525}
+  sceneManager: {fileID: 11400000, guid: b77e085b3efa8f742b2d21993d3d37ce, type: 2}
   syncAudio:
     m_PersistentCalls:
       m_Calls: []
@@ -2955,7 +2954,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: {fileID: 449325943}
+  gameManager: {fileID: 11400000, guid: b77e085b3efa8f742b2d21993d3d37ce, type: 2}
   jumpSound: {fileID: 262517159}
+  input: {fileID: 1926976354}
 --- !u!4 &830434824
 Transform:
   m_ObjectHideFlags: 0
@@ -3083,15 +3084,11 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 24c82628-17e9-446a-8bfd-5e3a9c1bb3df
-    m_ActionName: Menu/New action
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 830434823}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Jump
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3103,27 +3100,71 @@ MonoBehaviour:
     m_ActionId: 79d9fef2-58b6-43f0-84d1-7bbe3b5c1926
     m_ActionName: One_Button/button_0[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 830434823}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SwitchLane
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5bd91731-0ccf-446b-a6a9-49c50c3018d0
     m_ActionName: Four_Button/New action
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 830434823}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SwitchLane
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 35d1d160-d9c5-494a-981f-e86236f449bd
     m_ActionName: Four_Button/button_2[/Keyboard/w]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 830434823}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SwitchLane
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 12701e3f-4cd7-4eb4-8162-8cd1c11842bd
     m_ActionName: Four_Button/button_3[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 830434823}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SwitchLane
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a7055439-64b9-4d4f-812e-25559e2c84c5
     m_ActionName: Four_Button/button_4[/Keyboard/r]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5caee1cb-96d1-463b-bb23-48146d7bf721
-    m_ActionName: Menu/enter[/Keyboard/enter,/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: all
+  m_DefaultControlScheme: 
   m_DefaultActionMap: One_Button
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 963194227}
@@ -3189,7 +3230,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3387,7 +3428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093680741}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3564,13 +3605,17 @@ PrefabInstance:
       propertyPath: scene
       value: 
       objectReference: {fileID: 449325943}
+    - target: {fileID: 2129516695394407114, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 2113076209}
     - target: {fileID: 2412528237678749122, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4323121559437892223, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.5
+      value: 115.5
       objectReference: {fileID: 0}
     - target: {fileID: 4323121559437892223, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4132,7 +4177,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: -1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4191,6 +4236,8 @@ MonoBehaviour:
   lateTimingImage: {fileID: 1973417383}
   startButton: {fileID: 1219862288}
   scoreText: {fileID: 2096303650}
+  coinText: {fileID: 1224063113}
+  hpText: {fileID: 6431840}
 --- !u!4 &1496669838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5243993598655750246, guid: 5c3183e301c5e76429c35bf41069247c, type: 3}
@@ -4360,11 +4407,11 @@ PrefabInstance:
       objectReference: {fileID: 449325943}
     - target: {fileID: 5243993598655750246, guid: 5c3183e301c5e76429c35bf41069247c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77
+      value: 86.5
       objectReference: {fileID: 0}
     - target: {fileID: 5243993598655750246, guid: 5c3183e301c5e76429c35bf41069247c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5243993598655750246, guid: 5c3183e301c5e76429c35bf41069247c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4440,6 +4487,7 @@ MonoBehaviour:
   inputs: {fileID: 830434827}
   player: {fileID: 830434822}
   intervals: []
+  sceneManager: {fileID: 11400000, guid: b77e085b3efa8f742b2d21993d3d37ce, type: 2}
 --- !u!4 &1926976355
 Transform:
   m_ObjectHideFlags: 0
@@ -4735,17 +4783,21 @@ PrefabInstance:
       propertyPath: scene
       value: 
       objectReference: {fileID: 449325943}
+    - target: {fileID: 2129516695394407114, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 2113076209}
     - target: {fileID: 2412528237678749122, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4323121559437892223, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43
+      value: 50.5
       objectReference: {fileID: 0}
     - target: {fileID: 4323121559437892223, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4323121559437892223, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6874,6 +6926,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 19, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 20, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -4, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -8150,17 +8222,17 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 909d27d36f449ff4e96fc9e592439990, type: 2}
   - m_RefCount: 214
     m_Data: {fileID: 11400000, guid: 932b90a30c3e3e34d9cf525437982264, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 11400000, guid: e34286eeedb2a1e4bb67ed39a2937001, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 86
     m_Data: {fileID: 21300000, guid: 5a930de1a57b90542a104c8184a17f20, type: 3}
   - m_RefCount: 214
     m_Data: {fileID: 21300000, guid: 6e79946bee04b424d8d3fa463a2bffc9, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 21300000, guid: fd80dde8d2419054a8c0daa6671f5a76, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 300
+  - m_RefCount: 302
     m_Data:
       e00: 1
       e01: 0
@@ -8179,7 +8251,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 300
+  - m_RefCount: 302
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -8272,13 +8344,17 @@ PrefabInstance:
       propertyPath: scene
       value: 
       objectReference: {fileID: 449325943}
+    - target: {fileID: 2129516695394407114, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 2113076209}
     - target: {fileID: 2412528237678749122, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4323121559437892223, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.25
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 4323121559437892223, guid: 9f4d9f0dd68301f448940bbfaff55f89, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8335,7 +8411,7 @@ PrefabInstance:
       objectReference: {fileID: 449325943}
     - target: {fileID: 5243993598655750246, guid: 5c3183e301c5e76429c35bf41069247c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.5
+      value: 34.47
       objectReference: {fileID: 0}
     - target: {fileID: 5243993598655750246, guid: 5c3183e301c5e76429c35bf41069247c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8396,5 +8472,5 @@ SceneRoots:
   - {fileID: 449325945}
   - {fileID: 1926976355}
   - {fileID: 1415960524}
-  - {fileID: 1093680742}
   - {fileID: 273208157}
+  - {fileID: 1093680742}

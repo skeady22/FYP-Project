@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
 
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
     [SerializeField] private SceneController scene;
+    [SerializeField] private Tilemap tilemap;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed + 1.25f, 0, 0)) - new Vector3(transform.position.x, 0, 0);
+        ScalePos();
+        //transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed, 0, 0));
     }
 
     private void Update()
@@ -24,6 +27,13 @@ public class EnemyController : MonoBehaviour
         //transform.position -= (Vector3.right * ((scrollSpeed * 2) + 1.25f)) * Time.deltaTime;
     }
 
+    public void ScalePos()
+    {
+        float relativePos = transform.position.x - tilemap.transform.position.x;
+        float newPosition = tilemap.transform.position.x + relativePos * (SceneController.scrollSpeed + 1);
+        transform.position = new Vector3(newPosition, transform.position.y, transform.position.z);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         EnemyHit();
@@ -34,6 +44,6 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Hit enemy");
         enemy.SetActive(!enemy.activeSelf);
         PlayerController.LoseHP(10);
-        scene.HpTextUpdate(PlayerController.Health);
+        scene.ui.HpTextUpdate(PlayerController.Health);
     }
 }

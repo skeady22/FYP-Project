@@ -355,6 +355,7 @@
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/coinController.cs"
 "Assets/Scripts/EnemyController.cs"
+"Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GridController.cs"
 "Assets/Scripts/InputController.cs"
 "Assets/Scripts/MainMenuController.cs"

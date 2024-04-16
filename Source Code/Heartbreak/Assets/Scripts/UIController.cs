@@ -17,6 +17,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject lateTimingImage;
     [SerializeField] private GameObject startButton;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text coinText;
+    [SerializeField] private TMP_Text hpText;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +76,18 @@ public class UIController : MonoBehaviour
     public void UpdateScoreText()
     {
         scoreText.text = ("Score: " + PlayerController.Score);
+    }
+
+    public void HpTextUpdate(int hp)
+    {
+        hpText.text = string.Format("{0}%", hp);
+        Debug.Log("updated health text");
+    }
+
+    public void CoinTextUpdate()
+    {
+        coinText.text = ("Coins: " + SceneController.collectedCoins);
+        Debug.Log("Added 1 coin");
     }
 
     public void EarlyTimingUI(int timing)

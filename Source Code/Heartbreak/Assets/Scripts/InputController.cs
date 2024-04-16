@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,22 +10,16 @@ public class InputController : MonoBehaviour
     [SerializeField] private PlayerInput inputs;
     [SerializeField] private GameObject player;
     [SerializeField] private List<float> intervals;
+    [SerializeField] private GameManager sceneManager;
 
     private int perfectScore;
     private int partialScore;
 
     private float timings;
-    private Vector3[] lanes = new Vector3[4];
 
     private void Awake()
     {
         intervals = new();
-
-        // lanes for the 4 button controls
-        lanes[0] = new Vector3(3, 0, 0);
-        lanes[1] = new Vector3(1, 0, 0);
-        lanes[2] = new Vector3(-1, 0, 0);
-        lanes[3] = new Vector3(-3, 0, 0);
 
         // points for when an input is hit correctly or when its early/late
         perfectScore = 300;
@@ -34,9 +29,9 @@ public class InputController : MonoBehaviour
     void Start()
     {
         // timing windows for the early/late input
-        if (SceneController.settings.extra_timing == true)
+        if (sceneManager.extra_timing == true)
         {
-            timings = 0.3f;
+            timings = 0.2f;
         }
         else
         {
@@ -53,12 +48,12 @@ public class InputController : MonoBehaviour
         {
             if (intervals.Count > 0)
             {
-                checkInputTiming(Time.time);
+                //checkInputTiming(Time.time);
             }
         }
     }
 
-    private void checkInputTiming(float inputTime)
+    public void checkInputTiming(float inputTime)
     {
         //intervalTime finds either the last interval or the next interval
         float intervalTime;
@@ -102,8 +97,8 @@ public class InputController : MonoBehaviour
             yield return null; // wait until the audio loads in
         }
 
-        Debug.Log("offset: " + SceneController.settings.offset);
-        yield return new WaitForSeconds(SceneController.settings.offset); // offset that the player sets
+        Debug.Log("offset: " + sceneManager.offset);
+        yield return new WaitForSeconds(sceneManager.offset); // offset that the player sets
 
         scene.Audio.Play();
         Debug.Log("Audio started");
