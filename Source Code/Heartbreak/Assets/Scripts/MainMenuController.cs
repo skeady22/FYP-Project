@@ -8,6 +8,7 @@ namespace Assets.Scripts
 {
     public class MainMenuController : MonoBehaviour
     {
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private GameObject mainUI;
         [SerializeField] private GameObject optionsUI;
         [SerializeField] private TextAsset settingJson;
@@ -66,42 +67,49 @@ namespace Assets.Scripts
         public void MasterVol()
         {
             settings.master_vol = (int)masterVol.value;
+            gameManager.master_vol = (int)masterVol.value;
             Debug.Log("set master vol to " + settings.master_vol);
         }
 
         public void MusicVol()
         {
             settings.music_vol = (int)musicVol.value;
+            gameManager.music_vol = (int)musicVol.value;
             Debug.Log("set music vol to " + settings.music_vol);
         }
 
         public void EffectVol()
         {
             settings.effect_vol = (int)effectVol.value;
+            gameManager.effect_vol = (int)effectVol.value;
             Debug.Log("set effect vol to " + settings.effect_vol);
         }
 
         public void SetVisuals()
         {
             settings.visuals = !settings.visuals;
+            gameManager.visuals = !gameManager.visuals;
             Debug.Log("set visuals to " + settings.visuals);
         }
 
         public void SetNoFail()
         {
             settings.no_fail = !settings.no_fail;
+            gameManager.no_fail = !gameManager.no_fail;
             Debug.Log("set nofail to " + settings.no_fail);
         }
 
         public void SetMetronome()
         {
             settings.metronome = !settings.metronome;
+            gameManager.metronome = !gameManager.metronome;
             Debug.Log("set metronome to " + settings.metronome);
         }
 
         public void SetTiming()
         {
             settings.extra_timing = !settings.extra_timing;
+            gameManager.extra_timing = !gameManager.extra_timing;
             Debug.Log("set extra_timing to" + settings.extra_timing);
         }
 

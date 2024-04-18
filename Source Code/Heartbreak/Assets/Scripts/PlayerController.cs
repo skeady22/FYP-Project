@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
 
         // set isGrounded to true so the player can jump and get the scroll speed from the bpm speed * the multiplier that the player chooses
         isGrounded = true;
-        scene.syncAudio.AddListener(LogPosition);
         
 
         direction = new Vector3((SceneController.scrollSpeed + 1.25f), 0, 0);
@@ -67,7 +66,7 @@ public class PlayerController : MonoBehaviour
             //transform.position += Vector3.right * (scrollSpeed * 2 + 1.25f) * Time.deltaTime;
             //transform.Translate((direction * (Time.deltaTime * (direction.magnitude/SceneController.secPerBeat)) * 2));
             //transform.Translate(direction * Time.deltaTime);
-            transform.position += direction * Time.deltaTime * SceneController.beatPerSec;
+            //transform.position += direction * Time.deltaTime * SceneController.beatPerSec;
         }
     }
 
@@ -118,11 +117,6 @@ public class PlayerController : MonoBehaviour
     {
         Health -= hp;
         Debug.Log(string.Format("Lost {0} health", hp));
-    }
-
-    void LogPosition()
-    {
-        Debug.Log("player position: " + transform.position);
     }
 
     public static void AddScore(int score)

@@ -357,6 +357,7 @@
 "Assets/Scripts/EnemyController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GridController.cs"
+"Assets/Scripts/HighScore.cs"
 "Assets/Scripts/InputController.cs"
 "Assets/Scripts/MainMenuController.cs"
 "Assets/Scripts/PlayerController.cs"

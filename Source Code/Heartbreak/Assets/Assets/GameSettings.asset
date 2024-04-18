@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   one_button: 1
-  offset: 0
+  offset: -0.1
   scroll_mult: 2
   master_vol: 100
   music_vol: 100
@@ -22,5 +22,4 @@ MonoBehaviour:
   visuals: 1
   metronome: 0
   extra_timing: 0
-  levelScores: 
   items: 

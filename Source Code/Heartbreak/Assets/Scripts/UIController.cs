@@ -39,31 +39,29 @@ public class UIController : MonoBehaviour
         beatImage.SetActive(!beatImage.activeSelf);
     }
 
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
-    }
-
     public void PauseGame()
     {
+        scene.Audio.Pause();
         Time.timeScale = 0;
-    }
-
-    public void OptionMenu()
-    {
-        mainUI.SetActive(false);
         optionsUI.SetActive(true);
     }
 
-    public void BackButton()
+    public void ContinueGame()
     {
-        mainUI.SetActive(true);
         optionsUI.SetActive(false);
+        scene.Audio.Play();
+        Time.timeScale = 1;
     }
 
-    public void QuitGame()
+    public void RestartGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitLevel()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.UnloadSceneAsync(1);
     }
 
     public void StartGame()

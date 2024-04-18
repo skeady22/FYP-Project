@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScalePos();
+        //ScalePos();
         //transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed, 0, 0));
     }
 

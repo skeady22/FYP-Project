@@ -19,7 +19,7 @@ namespace Assets.Scripts
         public bool extra_timing;
 
         [Header("High Scores")]
-        public int[] levelScores;
+        public HighScore[] levelScores;
 
         [Header("Items")]
         public bool[] items;
