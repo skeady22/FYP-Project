@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class InputController : MonoBehaviour
 {
     [SerializeField] private SceneController scene;
-    [SerializeField] private PlayerInput inputs;
+    [SerializeField] public PlayerInput inputs;
     [SerializeField] private GameObject player;
     [SerializeField] private List<float> intervals;
     [SerializeField] private GameManager gameManager;
@@ -104,7 +104,7 @@ public class InputController : MonoBehaviour
         scene.Audio.Play();
         scene.Metronome.Play();
         Debug.Log("Audio started");
-
+        StartCoroutine(scene.EndLevel());
         while (true)
         {
             scene.syncAudio.Invoke();

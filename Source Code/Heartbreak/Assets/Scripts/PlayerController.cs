@@ -42,13 +42,11 @@ public class PlayerController : MonoBehaviour
 
         if (gameManager.one_button == true)
         {
-            inputs.SwitchCurrentActionMap("One_Button");
-            rigidbody.gravityScale = 5;
+            SwitchActionMap(0);
         }
         else
         {
-            inputs.SwitchCurrentActionMap("Four_Button");
-            rigidbody.gravityScale = 0;
+            SwitchActionMap(1);
         }
 
         // set isGrounded to true so the player can jump and get the scroll speed from the bpm speed * the multiplier that the player chooses
@@ -109,8 +107,23 @@ public class PlayerController : MonoBehaviour
                 default:
                     break;
             }
+            jumpSound.Play();
         }
         
+    }
+
+    public void SwitchActionMap(int map)
+    {
+        if (map == 0)
+        {
+            inputs.SwitchCurrentActionMap("One_Button");
+            rigidbody.gravityScale = 5;
+        }
+        else
+        {
+            inputs.SwitchCurrentActionMap("Four_Button");
+            rigidbody.gravityScale = 0;
+        }
     }
 
     public static void LoseHP(int hp)

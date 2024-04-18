@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Assets.Scripts.CameraController
+    - Assets.Scripts.GameManager
     - Assets.Scripts.MainMenuController
     - Assets.Scripts.coinController
     - EnemyController
@@ -121,6 +122,9 @@ ScriptsOnlyBuild:
     methodName: EffectVol
   - assembly: Assembly-CSharp
     fullTypeName: Assets.Scripts.MainMenuController
+    methodName: PlayLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: Assets.Scripts.MainMenuController
     methodName: BackButton
   - assembly: Assembly-CSharp
     fullTypeName: Assets.Scripts.MainMenuController
@@ -128,6 +132,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Assets.Scripts.MainMenuController
     methodName: SetTiming
+  - assembly: Assembly-CSharp
+    fullTypeName: Assets.Scripts.MainMenuController
+    methodName: PlayLevel
   - assembly: Assembly-CSharp
     fullTypeName: Assets.Scripts.MainMenuController
     methodName: SetNoFail
@@ -142,13 +149,94 @@ ScriptsOnlyBuild:
     methodName: SetVisuals
   - assembly: Assembly-CSharp
     fullTypeName: UIController
+    methodName: QuitLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: StartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: RestartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchActionMap
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchActionMap
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: RestartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
     methodName: PauseGame
   - assembly: Assembly-CSharp
     fullTypeName: PlayerController
     methodName: Jump
   - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: PauseGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: ContinueGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: QuitLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: QuitLevel
+  - assembly: Assembly-CSharp
     fullTypeName: UIController
     methodName: StartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: RestartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchActionMap
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchActionMap
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: RestartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: PauseGame
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: Jump
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerController
+    methodName: SwitchLane
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: PauseGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: ContinueGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: QuitLevel
   sceneClasses:
     Assets/Scenes/MainMenu.unity:
     - Class: 1
@@ -174,39 +262,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1612}
+      Script: {instanceID: 1566}
     - Class: 114
-      Script: {instanceID: 2236}
+      Script: {instanceID: 1614}
     - Class: 114
-      Script: {instanceID: 2702}
+      Script: {instanceID: 2238}
     - Class: 114
-      Script: {instanceID: 2906}
+      Script: {instanceID: 2704}
     - Class: 114
-      Script: {instanceID: 3204}
+      Script: {instanceID: 2908}
     - Class: 114
-      Script: {instanceID: 3850}
+      Script: {instanceID: 3206}
     - Class: 114
-      Script: {instanceID: 3878}
+      Script: {instanceID: 3852}
     - Class: 114
-      Script: {instanceID: 4316}
+      Script: {instanceID: 3880}
     - Class: 114
-      Script: {instanceID: 4582}
+      Script: {instanceID: 4322}
     - Class: 114
-      Script: {instanceID: 5206}
+      Script: {instanceID: 4588}
     - Class: 114
-      Script: {instanceID: 5262}
+      Script: {instanceID: 5212}
     - Class: 114
-      Script: {instanceID: 5342}
+      Script: {instanceID: 5268}
     - Class: 114
-      Script: {instanceID: 5608}
+      Script: {instanceID: 5348}
     - Class: 114
-      Script: {instanceID: 5918}
+      Script: {instanceID: 5614}
     - Class: 114
-      Script: {instanceID: 6090}
+      Script: {instanceID: 6094}
     - Class: 114
-      Script: {instanceID: 6842}
+      Script: {instanceID: 6846}
     - Class: 114
-      Script: {instanceID: 7590}
+      Script: {instanceID: 7594}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -223,7 +311,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    Assets/Scenes/SampleLevel.unity:
+    Assets/Scenes/level1.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -255,41 +343,140 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 644}
     - Class: 114
-      Script: {instanceID: 1612}
+      Script: {instanceID: 1566}
     - Class: 114
-      Script: {instanceID: 1616}
+      Script: {instanceID: 1614}
     - Class: 114
-      Script: {instanceID: 2702}
+      Script: {instanceID: 1618}
     - Class: 114
-      Script: {instanceID: 2906}
+      Script: {instanceID: 2704}
     - Class: 114
-      Script: {instanceID: 3204}
+      Script: {instanceID: 2908}
     - Class: 114
-      Script: {instanceID: 3878}
+      Script: {instanceID: 3206}
     - Class: 114
-      Script: {instanceID: 3920}
+      Script: {instanceID: 3880}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 3924}
     - Class: 114
-      Script: {instanceID: 5214}
+      Script: {instanceID: 4024}
     - Class: 114
-      Script: {instanceID: 5342}
+      Script: {instanceID: 4892}
     - Class: 114
-      Script: {instanceID: 5918}
+      Script: {instanceID: 5220}
     - Class: 114
-      Script: {instanceID: 6090}
+      Script: {instanceID: 5348}
     - Class: 114
-      Script: {instanceID: 6096}
+      Script: {instanceID: 6094}
     - Class: 114
-      Script: {instanceID: 6746}
+      Script: {instanceID: 6100}
     - Class: 114
-      Script: {instanceID: 6842}
+      Script: {instanceID: 6750}
     - Class: 114
-      Script: {instanceID: 7590}
+      Script: {instanceID: 6846}
     - Class: 114
-      Script: {instanceID: 8254}
+      Script: {instanceID: 7594}
     - Class: 114
-      Script: {instanceID: 8338}
+      Script: {instanceID: 8258}
+    - Class: 114
+      Script: {instanceID: 8342}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 251
+      Script: {instanceID: 0}
+    - Class: 19719996
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
+      Script: {instanceID: 0}
+    Assets/Scenes/level2.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 644}
+    - Class: 114
+      Script: {instanceID: 1566}
+    - Class: 114
+      Script: {instanceID: 1614}
+    - Class: 114
+      Script: {instanceID: 1618}
+    - Class: 114
+      Script: {instanceID: 2704}
+    - Class: 114
+      Script: {instanceID: 2908}
+    - Class: 114
+      Script: {instanceID: 3206}
+    - Class: 114
+      Script: {instanceID: 3880}
+    - Class: 114
+      Script: {instanceID: 3924}
+    - Class: 114
+      Script: {instanceID: 4024}
+    - Class: 114
+      Script: {instanceID: 4892}
+    - Class: 114
+      Script: {instanceID: 5220}
+    - Class: 114
+      Script: {instanceID: 5348}
+    - Class: 114
+      Script: {instanceID: 6094}
+    - Class: 114
+      Script: {instanceID: 6100}
+    - Class: 114
+      Script: {instanceID: 6750}
+    - Class: 114
+      Script: {instanceID: 6846}
+    - Class: 114
+      Script: {instanceID: 7594}
+    - Class: 114
+      Script: {instanceID: 8258}
+    - Class: 114
+      Script: {instanceID: 8342}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -319,6 +506,12 @@ ScriptsOnlyBuild:
     - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 6a356b04c25c0bb008c1b24bf8b0f996
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -687,7 +880,7 @@ ScriptsOnlyBuild:
     className: ScriptGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: f217a4aae62dcd769e830131344fa5d2
+      Hash: 0e99db024892289b68a934cfeddb3193
     assemblyName: Assembly-CSharp
     namespaceName: Assets.Scripts
     className: MainMenuController
@@ -705,7 +898,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 5af620e834f4c3bc6ad3d0b882e8e2c7
+      Hash: 8fd7d71a0e69af3cc6863e06e98a7f6a
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerController
@@ -715,6 +908,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 45d95d349f3f5c6fa7101f015a9639ec
+    assemblyName: Assembly-CSharp
+    namespaceName: Assets.Scripts
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -867,7 +1066,7 @@ ScriptsOnlyBuild:
     className: UnityOnPointerClickMessageListener
   - hash:
       serializedVersion: 2
-      Hash: daf61146b094f70a2626d86f8063a36f
+      Hash: 291fa58dcb73ab6691a61143cb715744
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SceneController
@@ -1047,12 +1246,6 @@ ScriptsOnlyBuild:
     className: PlayerInputManagerEditor
   - hash:
       serializedVersion: 2
-      Hash: 6a356b04c25c0bb008c1b24bf8b0f996
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
-  - hash:
-      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1071,7 +1264,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: e0202013c23a82634f3d86691e49d1c6
+      Hash: bb9c68a892997270f76025c80c570c06
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UIController
@@ -1155,7 +1348,7 @@ ScriptsOnlyBuild:
     className: InputActionAssetEditor
   - hash:
       serializedVersion: 2
-      Hash: 4c56debcc305a2b0b3d041fb2ef2e474
+      Hash: eece57299976250b2bf467eeb729e1c9
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: EnemyController
@@ -1401,7 +1594,7 @@ ScriptsOnlyBuild:
     className: UnityOnToggleValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 7bd4836bb6eff223aa8ece320b4e12df
+      Hash: 60b6dcfc1941014ddca50499135922e5
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InputController
@@ -1432,5 +1625,6 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
-  - Assets/Scenes/SampleLevel.unity
-  playerPath: C:/Users/danui/Documents/Github/FYP-Project/Compiled Game/Heartbreak.exe
+  - Assets/Scenes/level1.unity
+  - Assets/Scenes/level2.unity
+  playerPath: C:/Users/danui/Documents/Github/FYP-Project/Demo day/Heartbreak.exe

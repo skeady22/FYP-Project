@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     {
         //ScalePos();
         //transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed, 0, 0));
+        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x / SceneController.scrollSpeed, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
     }
 
     private void Update()

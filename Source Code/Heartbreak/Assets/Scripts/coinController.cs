@@ -12,9 +12,10 @@ namespace Assets.Scripts
         {
             //transform.position += new Vector3(SceneController.scrollSpeed + 1.25f, 0, 0);
             //transform.position = new Vector3((transform.position.x * (SceneController.scrollSpeed + 1.25f)) - transform.position.x, transform.position.y, transform.position.z);
-            
+
             //transform.position = Vector3.Scale(transform.position, new Vector3(SceneController.scrollSpeed + 1.25f, 1, 1)) - new Vector3(transform.position.x, 0, 0);
             //transform.position -= new Vector3(21, 0, 0);
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x / SceneController.scrollSpeed, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
         }
 
         // Update is called once per frame

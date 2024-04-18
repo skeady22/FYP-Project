@@ -119,5 +119,10 @@ namespace Assets.Scripts
             File.WriteAllText(settingFile, settingText);
             Debug.Log("saved changes to json file");
         }
+
+        public void PlayLevel(int level)
+        {
+            SceneManager.LoadScene(level, LoadSceneMode.Single);
+        }
     }
 }

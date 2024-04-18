@@ -14,6 +14,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject gridObj;
     [SerializeField] float scrollMult;
     [SerializeField] public UIController ui;
+    [SerializeField] private GameObject enemies;
 
     [SerializeField] public GameManager gameManager;
 
@@ -57,12 +58,16 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        metronome.pitch = beatPerSec;
         if (gameManager.metronome)
         {
             metronome.mute = false;
         }
 
+        //float difference = enemies.transform.position.x - gridObj.transform.position.x;
+
         gridObj.transform.localScale += new Vector3(scrollSpeed, 0, 0);
+        //enemies.transform.position += new Vector3(difference + scrollSpeed, 0, 0);
 
         direction = new Vector3(gridObj.transform.localScale.x, 0, 0);
 
@@ -81,5 +86,12 @@ public class SceneController : MonoBehaviour
     {
         collectedCoins++;
         ui.CoinTextUpdate();
+    }
+
+    public IEnumerator EndLevel()
+    {
+        yield return new WaitForSeconds(60);
+        audio.Stop();
+        ui.EndGame();
     }
 }

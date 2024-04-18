@@ -19,6 +19,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text coinText;
     [SerializeField] private TMP_Text hpText;
+    [SerializeField] private GameObject endUi;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +70,12 @@ public class UIController : MonoBehaviour
         startButton.SetActive(false);
         Time.timeScale = 1;
         StartCoroutine(input.AudioSync());
+    }
+
+    public void EndGame()
+    {
+        Time.timeScale = 0;
+        endUi.SetActive(true);
     }
 
     public void UpdateScoreText()
